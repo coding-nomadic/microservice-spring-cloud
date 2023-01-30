@@ -24,7 +24,7 @@ public class FetchUserController {
     @GetMapping(value = "/users")
     @CircuitBreaker(name = "fetch-users", fallbackMethod = "defaultMethod")
     public String fetchAllUser() {
-        return restTemplate.getForObject("", String.class);
+        return restTemplate.getForObject(usersUrl, String.class);
     }
 
     public String defaultMethod(Exception exception) {
