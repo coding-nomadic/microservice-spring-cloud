@@ -1,9 +1,9 @@
 package com.apps.microservice.userconverterservice;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 
 
 @RestController
 @RequestMapping(value = "/api")
+@Slf4j
 public class UserConverterController {
 
     @Autowired
@@ -31,7 +33,8 @@ public class UserConverterController {
         });
     }
 
-    public String defaultMethod(Exception exception) {
-        return "API is currently down!!";
+    public List<Root> defaultMethod(Exception exception) {
+        log.error("API is currently down !!");
+        return Collections.emptyList();
     }
 }
