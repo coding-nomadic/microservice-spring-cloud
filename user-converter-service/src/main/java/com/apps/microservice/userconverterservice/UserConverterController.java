@@ -3,6 +3,7 @@ package com.apps.microservice.userconverterservice;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,9 +24,14 @@ public class UserConverterController {
     private ObjectMapper objectMapper;
 
     @GetMapping(path = "/transformUsers", produces = MediaType.APPLICATION_XML_VALUE)
+    @CircuitBreaker(name = "user-converter", fallbackMethod = "defaultMethod")
     public List<Root> converter() throws IOException {
         String response = proxy.retrieveExchangeValue();
         return objectMapper.readValue(response, new TypeReference<List<Root>>() {
         });
+    }
+
+    public String defaultMethod(Exception exception) {
+        return "API is currently down!!";
     }
 }
