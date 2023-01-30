@@ -1,5 +1,6 @@
 package com.apps.microservice.fetchuserservice;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,9 +22,9 @@ public class FetchUserController {
     private String usersUrl;
 
     @GetMapping(value = "/users")
-    @Retry(name = "fetch-users", fallbackMethod = "defaultMethod")
+    @CircuitBreaker(name = "fetch-users", fallbackMethod = "defaultMethod")
     public String fetchAllUser() {
-        return restTemplate.getForObject(usersUrl, String.class);
+        return restTemplate.getForObject("", String.class);
     }
 
     public String defaultMethod(Exception exception) {
