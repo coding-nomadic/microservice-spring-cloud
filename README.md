@@ -14,6 +14,7 @@ A simple Rest Microservices built with Spring Cloud, Spring Boot and other Tech 
 - Spring Cloud - Open Feign
 - Spring Cloud - Netflix Eureka Server
 - Spring Cloud Config Server
+- Fault Tolerant with resilence4J (circuit breaker pattern)
 - Spring Cloud API Gateway
 - Maven
 
