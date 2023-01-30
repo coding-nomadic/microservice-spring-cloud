@@ -1,6 +1,6 @@
 ## microservices-spring-cloud
 
-A simple Rest Microservices built wtih Spring Cloud, Spring Boot and other Tech Stacks for the demo.
+A simple Rest Microservices built with Spring Cloud, Spring Boot and other Tech Stacks for the demo.
 
 ## Project Architecture - 
 
