@@ -19,7 +19,10 @@ A simple Rest Microservices built with Spring Cloud, Spring Boot and other Tech 
 - Maven
 
 
+
 ## Docker command to pull images and run the containers
+
+There should be docker engine running locally. Incase of windows, use desktop docker- 
 
 ```
 docker run -p 8761:8761 tendawa123/eureka-name-server:0.0.1-SNAPSHOT
