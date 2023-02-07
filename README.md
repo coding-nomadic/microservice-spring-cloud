@@ -27,11 +27,15 @@ There should be docker engine running locally. Incase of windows, use desktop do
 ```
 docker run -p 8761:8761 tendawa123/eureka-name-server:0.0.1-SNAPSHOT
 ```
+```
 docker run -p 8888:8888 tendawa123/spring-cloud-config-server:0.0.1-SNAPSHOT
+```
 ```
 docker run -p 8000:8000 tendawa123/fetch-user-service:0.0.1-SNAPSHOT
 ```
+```
 docker run -p 8001:8001 tendawa123/user-converter-service:0.0.1-SNAPSHOT
+```
 ```
 docker run -p 8765:8765 tendawa123/api-gateway:0.0.1-SNAPSHOT
 ```
