@@ -42,7 +42,7 @@ docker run -p 8765:8765 tendawa123/api-gateway:0.0.1-SNAPSHOT
 
 ## Docker compose 
 
-
+$ docker-compose up -d
 
 ```
 
